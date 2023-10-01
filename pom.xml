@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.tipcode</groupId>
+    <artifactId>event-handler</artifactId>
+    <version>v1.0.0-SNAPSHOT</version>
+
+<!-- ############################################################################################################### -->
+
+    <properties>
+
+        <!-- Constants -->
+        <const.java.version>17</const.java.version>
+        <const.encoding>UTF-8</const.encoding>
+
+        <!-- Maven -->
+        <maven.compiler.source>${const.java.version}</maven.compiler.source>
+        <maven.compiler.target>${const.java.version}</maven.compiler.target>
+
+        <!-- Project -->
+        <project.build.sourceEncoding>${const.encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${const.encoding}</project.reporting.outputEncoding>
+        <project.built.name>${project.artifactId}</project.built.name>
+        <project.source.directory>src/main/java</project.source.directory>
+
+        <!-- Dependencies -->
+        <dep.lombok.version>1.18.20</dep.lombok.version>
+        <dep.junit.jupiter.version>5.8.1</dep.junit.jupiter.version>
+        <dep.mockito.version>5.4.0</dep.mockito.version>
+
+        <!-- Plugins -->
+        <plugin.maven.compiler.version>3.11.0</plugin.maven.compiler.version>
+        <plugin.maven.resources.version>3.3.1</plugin.maven.resources.version>
+        <plugin.maven.surfire.version>3.1.2</plugin.maven.surfire.version>
+
+    </properties>
+
+<!-- ############################################################################################################### -->
+
+    <dependencies>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${dep.lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JUnit Dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${dep.junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${dep.junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Mockito -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${dep.mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+<!-- ############################################################################################################### -->
+
+    <build>
+
+        <!-- Establecemos el nombre del archivo final de la aplicación cuando se construya -->
+        <finalName>${project.built.name}</finalName>
+
+        <!-- Establecemos el directorio de origen de los archivos fuente -->
+        <sourceDirectory>${project.source.directory}</sourceDirectory>
+
+    <!-- ########################################################################################################### -->
+
+
+        <plugins>
+
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${plugin.maven.compiler.version}</version>
+                <configuration>
+                    <source>${const.java.version}</source>
+                    <target>${const.java.version}</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+
+            <!-- Maven Resources Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${plugin.maven.resources.version}</version>
+            </plugin>
+
+            <!-- Maven Surefire Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${plugin.maven.surfire.version}</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    <!-- ########################################################################################################### -->
+
+    </build>
+
+<!-- ############################################################################################################### -->
+
+    <developers>
+
+        <developer>
+            <name>Ángel Herce Soto</name>
+            <email>indenaiten@gmail.com</email>
+        </developer>
+
+    </developers>
+
+<!-- ############################################################################################################### -->
+
+</project>
